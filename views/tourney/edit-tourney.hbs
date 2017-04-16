@@ -1,0 +1,18 @@
+    <section class="sing-cont" data-id="{{_id}}">
+        <div><span>Name:</span><input type="text" value="{{torneyName}}"></div>
+        <div><span>Field:</span><input type="text" value="{{field}}"></div>
+        <div><span>Game:</span><input type="text" value="{{fieldName}}"></div>    
+    </section>    
+    <hr />
+    <section class="participants">
+          {{#each participants}}
+            <div class="participant">
+                <span>{{num}}</span>
+                <input type="text" class="participant-name" value="{{name}}">
+                <button class="btn btn-danger remove">X</button>
+            </div>
+          {{/each}}
+    </section>
+    <button class="save-changes">Save Changes</button>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/javascripts/tournament-edit.js"></script>

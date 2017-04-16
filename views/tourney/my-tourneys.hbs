@@ -1,0 +1,16 @@
+<h2>Torneys</h2>
+<main>
+    <section class="torney-cont">
+        {{#each torney}}
+            <article class="sing-cont">
+                <p><a href="/tourney/{{_id}}">Name: {{torneyName}}</a></p>
+                <p>Number of Fighters: {{particNum}}</p>
+                <p>Fighters enrolled: {{particCurrent}}/{{particNum}}</p>
+                <p>Created By:{{creatorUsername}}</p>
+                <p>Starts: {{stars}}</p>
+             <p>Submit Charasters into this Torney<a href="torneys/add-charaster/{{_id}}"><button>Fight</button></a></p>  
+            </article>
+        {{/each}}
+    </section>
+   <script src=""></script>
+</main>

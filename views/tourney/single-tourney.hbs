@@ -1,0 +1,61 @@
+<h2>Torney</h2>
+<main>
+    <section class="torney-cont">
+            <article class="sing-cont" data-id="{{_id}}">
+                <p>Name: {{torneyName}}</p>
+                <p>Number of Participants: <span id="total-partic">{{particNum}}</span></p>
+                <p>Participants enrolled: <span id="curr-partic">{{particCurrent}}</span>/{{particNum}}</p>
+                <p>Created By:{{creatorUsername}}</p>
+                <p>Starts: {{stars}}</p>
+             {{#unless starts}}
+             <button id="gen-brackets">Auto Fill Brackets</button>
+             <button id="start-tourney">Start Tournament</button>
+             {{/unless}}
+             <button id="fill-next-level">Auto Fill Winners</button>
+             <button id="edit-scores">Edit Scores</button>
+             <a href="/tourney/{{_id}}/edit"><button id="edit-tourney">Edit</button></a>
+            </article>
+    </section>
+    <section class="tournamen-schema">
+        {{#each levels}}
+        <div data-num="{{levelNum}}" class="level {{#if currentLevel}}current{{/if}}">
+            {{#each matches}}
+            <div class="match">
+                <div class="user">
+                    <p><span class="username">{{user1.name}}</span> <input class="score" value="{{user1Score}}"></p>
+                </div>
+                <div class="user">
+                    <p><span class="username">{{user2.name}}</span> <input class="score" value="{{user2Score}}"></p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <hr />
+         {{/each}}
+         <div id="winner">
+             <h4>Winner</h4>
+             <p>{{winner}}</p>
+         </div>
+         <hr />
+    </section>
+    <section class="participants">
+        {{#each participants}}
+        <p class="participant">
+            <span class="participant-name">{{name}}</span>
+            {{#unless ../starts}}
+            <button class="btn btn-danger remove">X</button>
+            {{/unless}}
+        </p>
+        {{/each}}
+    </section>
+    {{#unless starts}}
+    <div id="add-partic-cont">
+    <input class="add-new-name" />
+    <button class="add-partic">Add</button>
+    </div>
+    {{/unless}}
+    <button class="save-changes">Save Changes</button>
+    <a href="/tourney/my-tourneys"><button class="add-partic">My Tourneys</button></a>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/javascripts/tournament-main.js"></script>
+</main>
